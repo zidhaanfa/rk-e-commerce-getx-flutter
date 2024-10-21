@@ -114,7 +114,7 @@ class CustomAppBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      width: 0.6.sw,
+                      width: 0.5.sw,
                       child: Text(
                         pageName,
                         maxLines: 1,
