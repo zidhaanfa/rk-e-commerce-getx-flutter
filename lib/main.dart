@@ -33,6 +33,13 @@ Future<void> main() async {
   // initialize local notifications service
   await AwesomeNotificationsHelper.init();
 
+  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  //   statusBarColor: Colors.transparent,
+  //   statusBarIconBrightness: Brightness.dark,
+  //   systemNavigationBarColor: Colors.black,
+  //   systemNavigationBarIconBrightness: Brightness.light,
+  // ));
+
   runApp(
     ScreenUtilInit(
       // todo add your (Xd / Figma) artboard size

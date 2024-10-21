@@ -102,6 +102,7 @@ class ZFBaseColors {
   static Color whiteBackground = const Color.fromARGB(255, 1, 12, 19);
   static Color footerBackground = const Color.fromARGB(255, 11, 11, 11);
   static Color card = const Color.fromARGB(255, 255, 255, 255);
+  static Color error = const Color(0xffed0800);
 }
 
 class ZFTextColors {
