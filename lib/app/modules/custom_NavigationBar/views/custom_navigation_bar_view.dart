@@ -37,28 +37,35 @@ class CustomNavigationBarView extends GetView<CustomNavigationBarController> {
               key: c.navigatorKey,
               elevation: 2,
               // backgroundColor: Color.fromARGB(255, 255, 255, 255),
-              items: [
+              items: const [
                 //Home Page item
                 BottomNavigationBarItem(
-                  icon: const Icon(FontAwesomeIcons.house),
+                  icon: Icon(FontAwesomeIcons.house),
+                  tooltip: "Home",
                   label: "Home",
                 ),
                 //Courses Page item
                 BottomNavigationBarItem(
-                  icon: const Icon(FontAwesomeIcons.cartShopping),
-                  label: "Cart",
+                  icon: Icon(FontAwesomeIcons.shoppingBag),
+                  tooltip: "Product",
+                  label: "Product",
                 ),
                 //Blog Page item
                 BottomNavigationBarItem(
-                  icon: const Icon(FontAwesomeIcons.clipboardList),
+                  icon: Icon(FontAwesomeIcons.clipboardList),
+                  tooltip: "My Order",
                   label: "My Order",
                 ),
                 //Account Page item
                 BottomNavigationBarItem(
-                  icon: const Icon(FontAwesomeIcons.gear),
+                  icon: Icon(FontAwesomeIcons.gear),
+                  tooltip: "Account",
                   label: "Account",
                 ),
               ],
+              enableFeedback: true,
+              landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
+              useLegacyColorScheme: true,
               type: BottomNavigationBarType.shifting,
               fixedColor: theme.primaryColor,
               showSelectedLabels: false,
@@ -96,7 +103,30 @@ class CustomNavigationBarView extends GetView<CustomNavigationBarController> {
               },
             ),
           ),
-          body: c.pages[c.selectedMenu.value],
+          // body: c.pages[c.selectedMenu.value],
+          body: AnimatedSwitcher(
+            duration: const Duration(milliseconds: 300),
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                          begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
+                      .animate(animation),
+                  child: ScaleTransition(
+                    scale:
+                        Tween<double>(begin: 0.9, end: 1.0).animate(animation),
+                    child: child,
+                  ),
+                ),
+              );
+            },
+            child: IndexedStack(
+              key: ValueKey<int>(controller.selectedMenu.value),
+              index: c.selectedMenu.value,
+              children: c.pages,
+            ),
+          ),
         ),
       );
     });

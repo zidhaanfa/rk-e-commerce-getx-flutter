@@ -18,6 +18,7 @@ class MyOrderView extends GetView<MyOrderController> {
             pageName: 'My Order',
             subTitle: 'Manage your order',
             withTrailing: true,
+            withImage: false,
             trailingColor: theme.primaryColor,
             trailingIcon: Icons.chat,
           ),

@@ -4,6 +4,7 @@ import 'package:rk_shop/app/modules/account/views/account_view.dart';
 import 'package:rk_shop/app/modules/cart/views/cart_view.dart';
 import 'package:rk_shop/app/modules/home/views/home_view.dart';
 import 'package:rk_shop/app/modules/myOrder/views/my_order_view.dart';
+import 'package:rk_shop/app/modules/product/views/product_view.dart';
 
 class CustomNavigationBarController extends GetxController {
   //TODO: Implement CustomNavigationBarController
@@ -15,7 +16,7 @@ class CustomNavigationBarController extends GetxController {
   late List<Widget> pages;
 // Initial Page to be displayed
   late HomeView homeView;
-  late CartView cartView;
+  late ProductView productView;
   late MyOrderView myOrderView;
   late AccountView accountView;
 
@@ -28,12 +29,12 @@ class CustomNavigationBarController extends GetxController {
 
     // Initialize the Pages
     homeView = HomeView();
-    cartView = CartView();
+    productView = ProductView();
     myOrderView = MyOrderView();
     accountView = AccountView();
 
     // Initialize the List of Pages
-    pages = [homeView, cartView, myOrderView, accountView];
+    pages = [homeView, productView, myOrderView, accountView];
   }
 
   @override

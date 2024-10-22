@@ -7,6 +7,7 @@ import 'package:rk_shop/app/modules/home/views/widgets/tab/tab_category.dart';
 import 'package:rk_shop/app/modules/home/views/widgets/tab/tab_home.dart';
 
 import '../../../components/widget/Custom_carousel.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -14,6 +15,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     HomeController homeController = Get.put(HomeController());
     return Scaffold(
       body: Column(
@@ -26,15 +28,19 @@ class HomeView extends GetView<HomeController> {
             trailingWidget: Row(
               children: [
                 IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.search,
+                  onPressed: () {
+                    Get.toNamed(Routes.CART);
+                  },
+                  icon: Icon(
+                    Icons.shopping_cart_checkout,
+                    color: theme.buttonTheme.colorScheme!.primary,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.notifications,
+                    color: theme.buttonTheme.colorScheme!.secondary,
                   ),
                 ),
               ],
